@@ -540,11 +540,12 @@ export function NotContains(seed: string, validationOptions?: ValidationOptions)
 /**
  * Checks if the string contains only letters (a-zA-Z).
  */
-export function IsAlpha(validationOptions?: ValidationOptions) {
+export function IsAlpha(local?: ValidatorJS.AlphaLocale, validationOptions?: ValidationOptions) {
     return function (object: Object, propertyName: string) {
         const args: ValidationMetadataArgs = {
             type: ValidationTypes.IS_ALPHA,
             target: object.constructor,
+            constraints: [local],
             propertyName: propertyName,
             validationOptions: validationOptions
         };
@@ -555,11 +556,12 @@ export function IsAlpha(validationOptions?: ValidationOptions) {
 /**
  * Checks if the string contains only letters and numbers.
  */
-export function IsAlphanumeric(validationOptions?: ValidationOptions) {
+export function IsAlphanumeric(local?: ValidatorJS.AlphanumericLocale, validationOptions?: ValidationOptions) {
     return function (object: Object, propertyName: string) {
         const args: ValidationMetadataArgs = {
             type: ValidationTypes.IS_ALPHANUMERIC,
             target: object.constructor,
+            constraints: [local],
             propertyName: propertyName,
             validationOptions: validationOptions
         };
